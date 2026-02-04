@@ -6,7 +6,10 @@ import Testing
 
 private let envLock = NSLock()
 
-private func withEnvironment(_ updates: [String: String?], _ body: () throws -> Void) rethrows {
+private func withEnvironment(
+    _ updates: [String: String?],
+    _ body: () throws -> Void
+) rethrows {
     envLock.lock()
     defer { envLock.unlock() }
 
@@ -15,7 +18,8 @@ private func withEnvironment(_ updates: [String: String?], _ body: () throws -> 
         previous[key] = ProcessInfo.processInfo.environment[key]
         if let value {
             setenv(key, value, 1)
-        } else {
+        }
+        else {
             unsetenv(key)
         }
     }
@@ -24,7 +28,8 @@ private func withEnvironment(_ updates: [String: String?], _ body: () throws -> 
         for (key, value) in previous {
             if let value {
                 setenv(key, value, 1)
-            } else {
+            }
+            else {
                 unsetenv(key)
             }
         }
@@ -81,7 +86,7 @@ func invalidOverrideFallsBackToProvidedLevel() throws {
 @Test("Subsystem override uses transformed key")
 func subsystemOverrideUsesTransformedKey() throws {
     withEnvironment([
-        "MY_LIB_LOG_LEVEL": "critical",
+        "MY_LIB_LOG_LEVEL": "critical"
     ]) {
         let logger = Logger.subsystem("my-lib", .info)
         #expect(logger.logLevel == .critical)

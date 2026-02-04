@@ -26,7 +26,7 @@ Use Swift Package Manager; add the dependency to your `Package.swift` file:
 .package(url: "https://github.com/binarybirds/swift-log-env", from: "1.1.0"),
 ```
 
-Then add `SwiftNanoID` to your target dependencies:
+Then add `SwiftLogEnv` to your target dependencies:
 
 ```swift
 .product(name: "SwiftLogEnv", package: "swift-log-env"),

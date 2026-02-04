@@ -37,6 +37,11 @@ let package = Package(
                 .product(name: "Logging", package: "swift-log")
             ],
             swiftSettings: defaultSwiftSettings
+        ),
+        .testTarget(
+            name: "SwiftLogEnvTests",
+            dependencies: ["SwiftLogEnv"],
+            swiftSettings: defaultSwiftSettings
         )
     ]
 )

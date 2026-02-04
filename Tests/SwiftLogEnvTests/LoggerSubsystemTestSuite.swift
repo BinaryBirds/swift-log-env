@@ -1,5 +1,5 @@
 //
-//  LoggerSubsystemTests.swift
+//  LoggerSubsystemTestSuite.swift
 //  swift-log-env
 //
 //  Created by Binary Birds on 2026. 02. 04.
@@ -40,7 +40,7 @@ private func withEnvironment(
 }
 
 @Suite(.serialized)
-struct LoggerSubsystemTests {
+struct LoggerSubsystemTestSuite {
     @Test
     func usesProvidedLevelWhenNoOverrides() throws {
         withEnvironment([

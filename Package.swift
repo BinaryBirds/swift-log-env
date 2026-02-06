@@ -24,7 +24,7 @@ defaultSwiftSettings.append(
 let package = Package(
     name: "swift-log-env",
     products: [
-        .library(name: "SwiftLogEnv", targets: ["SwiftLogEnv"])
+        .library(name: "LoggingEnvironment", targets: ["LoggingEnvironment"])
     ],
     dependencies: [
         // [docc-plugin-placeholder]
@@ -32,15 +32,15 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "SwiftLogEnv",
+            name: "LoggingEnvironment",
             dependencies: [
                 .product(name: "Logging", package: "swift-log")
             ],
             swiftSettings: defaultSwiftSettings
         ),
         .testTarget(
-            name: "SwiftLogEnvTests",
-            dependencies: ["SwiftLogEnv"],
+            name: "LoggingEnvironmentTests",
+            dependencies: ["LoggingEnvironment"],
             swiftSettings: defaultSwiftSettings
         )
     ]

@@ -8,7 +8,7 @@ import Foundation
 import Logging
 import Testing
 
-@testable import SwiftLogEnv
+@testable import LoggingEnvironment
 
 private func withEnvironment(
     _ updates: [String: String?],

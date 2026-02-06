@@ -1,8 +1,8 @@
-# SwiftLogEnv
+# Swift Logging Environment
 
-Create custom loggers using a subsystem identifier and a log level.
+Create custom loggers scoped by subsystem and log level. Provides precise, fine-grained control over logging behavior across different environments.
 
-[![Release: 1.1.0](https://img.shields.io/badge/Release-1.1.0-F05138)]( https://github.com/binarybirds/swift-log-env/releases/tag/1.1.0)
+[![Release: 2.0.0](https://img.shields.io/badge/Release-2.0.0-F05138)]( https://github.com/binarybirds/swift-log-env/releases/tag/2.0.0)
 
 ## Requirements
 
@@ -23,13 +23,13 @@ Create custom loggers using a subsystem identifier and a log level.
 Use Swift Package Manager; add the dependency to your `Package.swift` file:
 
 ```swift
-.package(url: "https://github.com/binarybirds/swift-log-env", from: "1.1.0"),
+.package(url: "https://github.com/binarybirds/swift-log-env", from: "2.0.0"),
 ```
 
-Then add `SwiftLogEnv` to your target dependencies:
+Then add `LoggingEnvironment` to your target dependencies:
 
 ```swift
-.product(name: "SwiftLogEnv", package: "swift-log-env"),
+.product(name: "LoggingEnvironment", package: "swift-log-env"),
 ```
 
 Update the packages and you are ready.
@@ -43,13 +43,15 @@ API documentation is available at the following link.
 ## Basic example
 
 ```swift
-import SwiftLogEnv
+import LoggingEnvironment
 
 let libLogger = Logger.subsystem("my-lib", .notice)
 let appLogger = Logger.subsystem("my-app", .notice)
 
 // LOG_LEVEL=info MY_LIB_LOG_LEVEL=trace swift run MyApp
 ```
+
+This imports `LoggingEnvironment` and creates two loggers scoped to `my-lib` and `my-app` with a default `.notice` level. At runtime, environment variables override these levels: `LOG_LEVEL` sets a global minimum, while `MY_LIB_LOG_LEVEL` applies a more specific level to the `my-lib` subsystem, enabling per-subsystem logging control without code changes.
 
 ## Development
 

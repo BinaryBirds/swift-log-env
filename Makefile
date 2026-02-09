@@ -45,3 +45,4 @@ test:
 
 docker-test:
 	docker build -t tests . -f ./docker/tests/Dockerfile && docker run --rm tests
+

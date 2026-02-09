@@ -4,6 +4,9 @@ baseUrl = https://raw.githubusercontent.com/BinaryBirds/github-workflows/refs/he
 
 check: symlinks language deps lint headers docc-warnings package
 
+breakage:
+	curl -s $(baseUrl)/check-api-breakage.sh | bash
+
 package:
 	curl -s $(baseUrl)/check-swift-package.sh | bash
 
